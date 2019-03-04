@@ -10,7 +10,7 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by left-padding
      */
     public static String padLeft(String stringToBePadded, int amountOfPadding) {
-        return null;
+        return String.format("%" + amountOfPadding + "s", stringToBePadded);
     }
 
     /**
@@ -19,7 +19,7 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by right-padding
      */
     public static String padRight(String stringToBePadded, int amountOfPadding) {
-        return null;
+        return String.format("%-" + amountOfPadding + "s", stringToBePadded);
     }
 
     /**
@@ -28,7 +28,8 @@ public class StringUtils {
      * @return the string repeated and concatenated `n` times
      */
     public static String repeatString(String stringToBeRepeated, int numberOfTimeToRepeat) {
-        return null;
+        String repeated = new String(new char[numberOfTimeToRepeat]).replace("\0", stringToBeRepeated);
+        return repeated;
     }
 
     /**
@@ -36,7 +37,14 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        return null;
+        Boolean answer = false;
+        char[] charArray = string.toCharArray();
+        for (char character : charArray) {
+            if (Character.isAlphabetic(character)){
+                answer = true;
+            }
+        }
+        return answer;
     }
 
     /**
@@ -44,7 +52,14 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        return null;
+        Boolean answer = false;
+        char[] charArray = string.toCharArray();
+        for (char character : charArray) {
+            if (Character.isDigit(character)){
+                answer = true;
+            }
+        }
+        return answer;
     }
 
     /**
@@ -52,6 +67,13 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        return null;
+        Boolean answer = true;
+        char[] charArray = string.toCharArray();
+        for (char character : charArray) {
+            if (!Character.isLetterOrDigit(character)){
+                answer = false;
+            }
+        }
+        return answer;
     }
 }
