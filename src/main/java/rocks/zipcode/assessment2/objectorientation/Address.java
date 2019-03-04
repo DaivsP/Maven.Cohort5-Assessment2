@@ -1,5 +1,7 @@
 package rocks.zipcode.assessment2.objectorientation;
 
+import java.util.Comparator;
+
 /**
  * @author leon on 28/11/2018.
  */
@@ -86,6 +88,7 @@ public class Address implements AddressToString {
 
     @Override
     public boolean equals(Object o) {
-        return (Boolean)null;
+        Comparator<Address> comparator = (o1, o2) -> 0;
+        return comparator.equals(o);
     }
 }
