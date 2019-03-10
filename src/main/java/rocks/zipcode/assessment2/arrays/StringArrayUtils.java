@@ -15,10 +15,11 @@ public class StringArrayUtils {
      * @return an array with all elements between `startingIndex` and `endingIndex`
      */
     public static String[] getSubArray(String[] arrayToBeSpliced, int startingIndex, int endingIndex) {
-        List<String > arrayList = new ArrayList<>();
-        arrayList.addAll(Arrays.asList(arrayToBeSpliced));
-        List<String> answer = arrayList.subList(startingIndex, endingIndex);
-        return answer.toArray(new String[0]);
+//        List<String > arrayList = new ArrayList<>();
+//        arrayList.addAll(Arrays.asList(arrayToBeSpliced));
+//        List<String> answer = arrayList.subList(startingIndex, endingIndex);
+//        return answer.toArray(new String[0]);
+        return Arrays.copyOfRange(arrayToBeSpliced, startingIndex, endingIndex);
     }
 
 
@@ -28,9 +29,10 @@ public class StringArrayUtils {
      * @return an array all elements between after `startingIndex`
      */
     public static String[] getEndingArray(String[] arrayToBeSpliced, int startingIndex) {
-        List<String > answer = new ArrayList<>();
-        answer.addAll(Arrays.asList(arrayToBeSpliced));
-        answer.subList(startingIndex, 5);
-        return answer.toArray(new String[0]);
+//        List<String > answer = new ArrayList<>();
+//        answer.addAll(Arrays.asList(arrayToBeSpliced));
+//        answer.subList(startingIndex, 5);
+//        return answer.toArray(new String[0]);
+        return Arrays.copyOfRange(arrayToBeSpliced, startingIndex, arrayToBeSpliced.length);
     }
 }

@@ -1,6 +1,6 @@
 package rocks.zipcode.assessment2.objectorientation;
 
-import java.util.Comparator;
+import java.util.Objects;
 
 /**
  * @author leon on 28/11/2018.
@@ -53,7 +53,27 @@ public class Person {
 
     @Override
     public boolean equals(Object o) {
-        Comparator<Address> comparator = (o1, o2) -> 0;
-        return comparator.equals(o);
+//        Comparator<Address> comparator = (o1, o2) -> 0;
+//        return comparator.equals(o);
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(id, person.id) &&
+                Objects.equals(name, person.name) &&
+                Objects.equals(address, person.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, address);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address=" + address +
+                '}';
     }
 }

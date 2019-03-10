@@ -37,14 +37,15 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        Boolean answer = false;
-        char[] charArray = string.toCharArray();
-        for (char character : charArray) {
-            if (Character.isAlphabetic(character)){
-                answer = true;
-            }
-        }
-        return answer;
+//        Boolean answer = false;
+//        char[] charArray = string.toCharArray();
+//        for (char character : charArray) {
+//            if (Character.isAlphabetic(character)){
+//                answer = true;
+//            }
+//        }
+//        return answer;
+        return string.matches("[a-zA-z ]+");
     }
 
     /**
@@ -52,14 +53,15 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        Boolean answer = false;
-        char[] charArray = string.toCharArray();
-        for (char character : charArray) {
-            if (Character.isDigit(character)){
-                answer = true;
-            }
-        }
-        return answer;
+//        Boolean answer = false;
+//        char[] charArray = string.toCharArray();
+//        for (char character : charArray) {
+//            if (Character.isDigit(character)){
+//                answer = true;
+//            }
+//        }
+//        return answer;
+        return string.matches("[0-9]+");
     }
 
     /**
@@ -67,13 +69,14 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        Boolean answer = true;
-        char[] charArray = string.toCharArray();
-        for (char character : charArray) {
-            if (!Character.isLetterOrDigit(character)){
-                answer = false;
-            }
-        }
-        return answer;
+//        Boolean answer = true;
+//        char[] charArray = string.toCharArray();
+//        for (char character : charArray) {
+//            if (!Character.isLetterOrDigit(character)){
+//                answer = false;
+//            }
+//        }
+//        return answer;
+        return string.matches(".*[&*{}()]+.*");
     }
 }

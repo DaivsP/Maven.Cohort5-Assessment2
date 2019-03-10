@@ -12,11 +12,11 @@ public class Address implements AddressToString {
     String state;
     String zipcode;
     public Address() {
-        addressLine1 = "";
-        addressLine2 = "";
-        city = "";
-        state = "";
-        zipcode = "";
+        this.addressLine1 = "";
+        this.addressLine2 = "";
+        this.city = "";
+        this.state = "";
+        this.zipcode = "";
     }
 
     /**
@@ -88,7 +88,31 @@ public class Address implements AddressToString {
 
     @Override
     public boolean equals(Object o) {
-        Comparator<Address> comparator = (o1, o2) -> 0;
-        return comparator.equals(o);
+//        Comparator<Address> comparator = (o1, o2) -> 0;
+//        return comparator.equals(o);
+        if (o == null) {
+            return false;
+        }
+
+        if (!(o instanceof Address)) {
+            return false;
+        }
+
+        Address otherAddress = (Address)o;
+
+        return isEqualField(this.addressLine1, otherAddress.addressLine1)
+                && isEqualField(this.addressLine2, otherAddress.addressLine2)
+                && isEqualField(this.city, otherAddress.city)
+                && isEqualField(this.state, otherAddress.state)
+                && isEqualField(this.zipcode, otherAddress.zipcode);
+    }
+
+    private boolean isEqualField(Object object1, Object object2) {
+        if (object1 == null && object2 != null) {
+            return false;
+        } else if (!object1.equals(object2)) {
+            return false;
+        }
+        return true;
     }
 }
